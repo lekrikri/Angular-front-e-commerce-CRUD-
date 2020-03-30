@@ -1,0 +1,28 @@
+<app-banner></app-banner>
+<br>
+<span class="ligne"></span>
+<h2 class="display-5 text-center">+ 1 000 bateaux à louer dans les DOM-TOM</h2>
+<section class="container-fluid cards ">
+  <div class="row">
+  <article *ngFor="let article of articles | paginate: { itemsPerPage: count, currentPage: page }" class="card card--1 col-lg-6 col-md-12">
+    <div class="card__img"><img [src]="article.image1"></div>
+    <a [routerLink]="['/article', article._id]" class="card_link">
+       <div class="card__img--hover"><img [src]="article.image1"></div>
+     </a>
+     <div class="card__info">
+      <span class="card__category">
+        <span class="card__by">A partir de</span>
+        <h2 class="card__prix">{{ article.prix }}</h2>
+      </span>
+      <h3 class="card__title">{{ article.titre }} </h3>
+      <a [routerLink]="['/article', article._id]" class="card__author" title="author">Voir annonce</a>
+     </div>
+   </article>
+  </div>
+<!--Including the pagination control.-->
+  <div class="text-right">
+    <pagination-controls (pageChange)="page = $event"></pagination-controls>
+  </div>
+</section>
+
+

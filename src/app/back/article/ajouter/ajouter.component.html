@@ -1,0 +1,142 @@
+<app-menu></app-menu>
+<br/>
+<br/>
+<br/>
+<br/>
+<div class="container">
+  <h2 class="text-center my-3">Ajouter un article</h2>
+  <div class="row">
+      <div class="col-sm-12">
+          <form #f="ngForm" (ngSubmit)="onSubmitArticle(f)" (submit)="onFrmSubmit(f)" (reset)="onFrmReset(f)">
+              <div class="form-group">
+                  <label for="type_de_location">Type de location</label>
+                  <input class="form-control" type="text" name="type_de_location" id="type_de_location" value="" placeholder="Type de location" ngModel #nom="ngModel" required minlength="3" maxlength="30" (keyup)="onChange(f)" [ngClass]="{
+                  erreur: error.type_de_location}">
+              </div>
+              <div class="form-group">
+                  <label for="titre">Titre</label>
+                  <input class="form-control" type="text" name="titre" id="titre" value="" placeholder="Titre" ngModel #titre="ngModel" required minlength="3" maxlength="30" (keyup)="onChange(f)" [ngClass]="{
+                  erreur: error.titre}">
+              </div>
+              <div class="form-group">
+                  <label for="prix">Prix</label>
+                  <input name="prix" type="prix" placeholder="votre prix€/jour" class="form-control" id="prix" ngModel #prix="ngModel" required (keyup)="onChange(f)" [ngClass]="{erreur: error.prix}">
+              </div>
+              <div class="form-group">
+                <label for="image1">Image 1</label>
+                <input name="image1" type="image1" placeholder="Image 1" class="form-control" id="image1" ngModel #image1="ngModel" required (keyup)="onChange(f)" [ngClass]="{erreur: error.image1}">
+              </div>
+              <div class="form-group">
+                <label for="image1">Image 2</label>
+                <input name="image2" type="image2" placeholder="Image 2" class="form-control" id="image2" ngModel #image2="ngModel" required (keyup)="onChange(f)" [ngClass]="{erreur: error.image2}">
+              </div>
+
+              <div class="form-group">
+                <label for="image3">Image 3</label>
+                <input name="image3" type="image1" placeholder="Image 3" class="form-control" id="image3" ngModel #image3="ngModel" required (keyup)="onChange(f)" [ngClass]="{erreur: error.image3}">
+              </div>
+
+              <div class="form-group">
+                <label for="image4">Image 4</label>
+                <input name="image4" type="image4" placeholder="Image 4" class="form-control" id="image4" ngModel #image4="ngModel" required (keyup)="onChange(f)" [ngClass]="{erreur: error.image4}">
+              </div>
+
+              <div class="form-group">
+                <label for="horaires">Horaires</label>
+                <input name="horaires" type="horaires" placeholder="ex : 09h00 / 17h00" class="form-control" id="horaires" ngModel #horaires="ngModel" required (keyup)="onChange(f)" [ngClass]="{erreur: error.horaires}">
+              </div>
+
+              <div class="form-group">
+                <label for="horaires">Longeur bateau(m)</label>
+                <input name="longueur_bateau" type="longueur_bateau" placeholder="Longeur bateau(m)" class="form-control" id="longueur_bateau" ngModel #longueur_bateau="ngModel" required (keyup)="onChange(f)" [ngClass]="{erreur: error.longueur_bateau}">
+              </div>
+
+              <div class="form-group">
+                <label for="capacite_autorisee">Capacité autorisée</label>
+                <input name="capacite_autorisee" type="capacite_autorisee" placeholder="Capacité autorisée" class="form-control" id="capacite_autorisee" ngModel #capacite_autorisee="ngModel" required (keyup)="onChange(f)" [ngClass]="{erreur: error.capacite_autorisee}">
+              </div>
+
+              <div class="form-group">
+                <label for="annee_de_construction">Année de construction</label>
+                <input name="annee_de_construction" type="annee_de_construction" placeholder="Année de construction" class="form-control" id="annee_de_construction" ngModel #annee_de_construction="ngModel" required (keyup)="onChange(f)" [ngClass]="{erreur: error.annee_de_construction}">
+              </div>
+
+              <div class="form-group">
+                <label for="marque_modele">Marque modèle</label>
+                <input name="marque_modele" type="marque_modele" placeholder="marque_modele" class="form-control" id="marque_modele" ngModel #marque_modele="ngModel" required (keyup)="onChange(f)" [ngClass]="{erreur: error.marque_modele}">
+              </div>
+
+              <div class="form-group">
+                <label for="publication">Date de publication</label>
+                <input name="publication" type="publication" placeholder="année-mois-jour" class="form-control" id="publication" ngModel #publication="ngModel" required (keyup)="onChange(f)" [ngClass]="{erreur: error.publication}">
+              </div>
+
+
+
+              <button type="submit" class="btn btn-success m-2">Ajouter</button>
+              <button routerLink="/admin" type="reset" class="btn btn-warning m-2">Annuler</button>
+
+          </form>
+          <div *ngIf="erreur" class="alert alert-danger mt-5">
+
+
+
+            <div *ngIf="!titre.valid && titre.errors.required">
+                Champ titre requis
+            </div>
+            <div *ngIf="!titre.valid && titre.errors.minlength">
+                Le champ prenom doit avoir 3 caractères minimum
+            </div>
+            <div *ngIf="!titre.valid && titre.errors.maxlength">
+                Le champ titre doit avoir 30 caractères maximum
+            </div>
+            <div *ngIf="!prix.valid && prix.errors.required">
+                Champ prix requis
+            </div>
+            <div *ngIf="!image1.valid && image1.errors.required">
+                Champ image1 requis
+            </div>
+            <div *ngIf="!image2.valid && image2.errors.required">
+                Champ image2 requis
+            </div>
+            <div *ngIf="!image3.valid && image3.errors.required">
+              Champ image3 requis
+            </div>
+            <div *ngIf="!image4.valid && image4.errors.required">
+            Champ image4 requis
+            </div>
+            <div *ngIf="!horaires.valid && horaires.errors.required">
+              Champ horaires requis
+            </div>
+            <div *ngIf="!longueur_bateau.valid && longueur_bateau.errors.required">
+              Champ longueur bateau requis
+            </div>
+            <div *ngIf="!capacite_autorisee.valid && capacite_autorisee.errors.required">
+              Champ capacite autorise requise
+            </div>
+            <div *ngIf="!annee_de_construction.valid && annee_de_construction.errors.required">
+              Champ annee de construction requise
+            </div>
+            <div *ngIf="!marque_modele.valid && marque_modele.errors.required">
+              Champ marque modele requis
+            </div>
+            <div *ngIf="!publication.valid && publication.errors.required">
+              Champ date de publication requise
+            </div>
+
+        </div>
+          <div *ngIf="success" class="alert alert-success mt-5">
+              Un article vient d'étre ajouté!
+          </div>
+      </div>
+  </div>
+</div>
+<br/>
+<br/>
+<app-retour
+      [texte]="'retour à la page d\'admin'"
+      [path]="'/admin'"
+    ></app-retour>
+<br/>
+<br/>
+<br/>

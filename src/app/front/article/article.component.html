@@ -1,0 +1,29 @@
+<app-carousel></app-carousel>
+<section id="main">
+  <br>
+    <header>
+      <h1 class="text-center">{{ article[0].titre }}</h1>
+    </header>
+    <div class="info">
+      <strong>À propos de {{ article[0].marque_modele }}&nbsp;{{ article[0].annee_de_construction }}</strong>
+      <hr/>
+      À partir de : &nbsp;<strong>{{ article[0].prix }}</strong>
+      <br/>
+      Type de location : &nbsp;<strong>{{ article[0].type_de_location }}</strong>
+      <br/>
+      Horaires indicatives de début et fin de location : &nbsp;<strong>{{ article[0].horaires }}</strong>
+      <br/>
+      Marque - Modèle : &nbsp;<strong>{{ article[0].marque_modele }}</strong>
+      <br/>
+      Longueur (m) : &nbsp;<strong>{{ article[0].longueur_bateau }}</strong>
+      <br/>
+      Capacité autorisée :  &nbsp;<strong>{{ article[0].capacite_autorisee }}</strong>
+      <br/>
+      Année de construction : &nbsp;<strong>{{ article[0].annee_de_construction }}</strong>
+    </div>
+  <hr/>
+    <app-retour
+      [texte]="'retour à la page d\'accueil'"
+      [path]="'/'"
+    ></app-retour>
+</section>

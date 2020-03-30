@@ -1,0 +1,120 @@
+<br/>
+<br/>
+<br/>
+<div id="main">
+  <div class="inner">
+    <section class="clearfix">
+      <h1>Nous Contacter</h1>
+      <p>
+        <span class="image right"><img src="assets/boats/image_boats_4.jpg" width="650" alt=""/></span
+        >GuestonBoat est le site leader d'annonces de location de bateaux sur internet. Avec + 30 000 bateaux de particuliers et de professionnels, louez un voilier, catamaran ou bateau à moteur au meilleur prix. Avec ou sans skipper, réservez une croisière partout dans le monde ! GuestonBoat met en relation propriétaires et locataires en toute confiance.
+      </p>
+      <h3>
+        Des questions?<br/>
+        Besoin d'aide pour trouver le bateau parfait ?
+      </h3>
+    </section>
+    <hr />
+    <!-- Form -->
+    <section>
+      <h2>Formulaire à remplir</h2>
+      <form
+        class="formulaire"
+        #f="ngForm"
+        (submit)="onFrmSubmit(f)"
+        (reset)="onFrmReset(f)"
+      >
+        <input
+          type="text"
+          name="name"
+          id="name"
+          value=""
+          placeholder="Nom"
+          ngModel
+          #name="ngModel"
+          required
+          minlength="10"
+          maxlength="50"
+          (keyup)="onChange(f)"
+          [ngClass]="{
+            erreur: error.name
+          }"
+        />
+        <input
+          type="email"
+          name="email"
+          id="email"
+          value=""
+          placeholder="Email"
+          ngModel
+          #email="ngModel"
+          required
+          minlength="10"
+          maxlength="50"
+          pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+          (keyup)="onChange(f)"
+          [ngClass]="{
+            erreur: error.email
+          }"
+        />
+        <textarea
+          name="message"
+          id="message"
+          placeholder="Entrez votre message"
+          rows="6"
+          ngModel
+          #message="ngModel"
+          required
+          minlength="10"
+          maxlength="255"
+          (keyup)="onChange(f)"
+          [ngClass]="{
+            erreur: error.message
+          }"
+        ></textarea>
+        <ul class="actions">
+          <li>
+            <input type="submit" value="Envoyer message" />
+          </li>
+          <li><input type="reset" value="Reset" /></li>
+        </ul>
+      </form>
+      <div *ngIf="erreur" class="alert alert-danger mt-5">
+        <div *ngIf="!name.valid && name.errors.required">Champ name requis</div>
+        <div *ngIf="!name.valid && name.errors.minlength">
+          Champ name doit avoir 10 caractères minimum
+        </div>
+        <div *ngIf="!name.valid && name.errors.maxlength">
+          Champ name doit avoir 50 caractères maximum
+        </div>
+
+        <div *ngIf="!email.valid && email.errors.required">
+          Champ Email requis
+        </div>
+        <div *ngIf="!email.valid && email.errors.pattern">
+          Le champ email Doit être de la forme nom@domaine.fr
+        </div>
+        <div *ngIf="!email.valid && email.errors.minlength">
+          Champ Email doit avoir 10 caractères minimum
+        </div>
+        <div *ngIf="!email.valid && email.errors.maxlength">
+          Champ Email doit avoir 50 caractères maximum
+        </div>
+
+        <div *ngIf="!message.valid && message.errors.required">
+          Champ Message requis
+        </div>
+        <div *ngIf="!message.valid && message.errors.minlength">
+          Le champ Message doit avoir 10 caractères minimum
+        </div>
+        <div *ngIf="!message.valid && message.errors.maxlength">
+          Le champ message doit avoir 255 caractères maximum
+        </div>
+      </div>
+      <div *ngIf="success" class="alert alert-success mt-5">
+        Merci pour votre message ! Nous revenons vers vous au plus vite !!
+      </div>
+    </section>
+  </div>
+</div>
+

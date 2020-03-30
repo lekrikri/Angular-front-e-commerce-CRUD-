@@ -1,0 +1,35 @@
+<br/>
+<br/>
+<br/>
+<div id="main">
+  <div class="inner">
+    <section>
+      <p>
+        GuestonBoat est un site de location de bateaux sur internet. Avec + 1 000 bateaux de particuliers et de professionnels, louez un voilier, catamaran ou bateau à moteur au meilleur prix. Avec ou sans skipper, réservez une croisière partout dans les DOM-TOM ! Benboat met en relation propriétaires et locataires en toute confiance.
+      </p>
+    </section>
+    <hr />
+    <section>
+      <article class="uniform">
+        <div class="4u" *ngFor="let article of articles">
+          <span class="image smallfit"
+            ><a [routerLink]="['/article', article._id]"
+              ><img [src]="article.image1" width="600" alt=""/></a
+          ></span>
+          <h1>{{ article.titre }}</h1>
+          <p>
+            {{ article.type_de_location }}
+          </p>
+          <p>
+            <a
+              [routerLink]="['/article', article._id]"
+              class="button alt fit small"
+              >Voir annonce</a
+            >
+          </p>
+        </div>
+      </article>
+    </section>
+  </div>
+</div>
+

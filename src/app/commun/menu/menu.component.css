@@ -1,0 +1,84 @@
+.h3 {
+  font-weight: 700;
+  color: #b1dae7;
+  text-shadow: black;
+  font-weight: bold;
+}
+
+.ml-2{
+  font-weight: 700;
+  color: #b1dae7;
+  text-shadow: black;
+  font-weight: bold;
+
+}
+
+.fas {
+  font-size: 1.2rem;
+}
+header {
+  position: relative;
+}
+
+.menu-slide {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 0;
+  overflow: hidden;
+  transition: 0.3s width;
+  height: 100%;
+  z-index: 1100;
+
+}
+.links {
+  padding: 5px 20px 20px 20px;
+}
+
+.menu-slide a {
+  font-weight: 700;
+  color: #b1dae7;
+  text-shadow: black;
+  font-weight: bold;
+  font-size: 20px;
+  display: block;
+  text-align: right;
+  text-decoration: none;
+
+}
+
+.menu-slide li:first-child a {
+  color: inherit;
+  font-size: 40px;
+  text-align: left;
+}
+
+.menu-slide li {
+  margin-bottom: 15px;
+}
+
+.menu-slide.show {
+  width: 250px;
+}
+
+
+/*================ Media queries  ===============*/
+
+@media(min-width: 480px) and (max-width: 1388px)
+{
+  #global {
+    width: 100%;
+    margin :auto ;
+  }
+
+  header {
+    width: 100%;
+    margin :auto ;
+  }
+  nav {
+    float: none!important;
+  }
+
+
+}
+

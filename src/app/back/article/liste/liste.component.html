@@ -1,0 +1,45 @@
+<app-menu></app-menu>
+<br/>
+<br/>
+<div class="container">
+<div class="row mt-3">
+  <div class="col-4">
+      <app-menu-dashboard></app-menu-dashboard>
+  </div>
+
+  <div class="col-8">
+      <h1>Gestion des articles</h1>
+      <div>
+          <a href="/admin/article/ajouter" class="btn btn-primary">Ajouter un article</a>
+      </div>
+      <!-- On dispose d'un service qui permet de recuperer tous les articles articleFictifService getAll.
+      Nous allons utiliser le meme service que dans la page d'accueil liste.component.ts > ajouter le service
+      declarer le service dans le constructeur du composant et utiliser dans une variable de class articles
+      ==== comme pour la page d'accueil-->
+     <!-- <div *ngFor="let article of articles" style="display:flex" class="mg-3">
+          <span class="mr-auto">
+              {{article.titre}}
+          </span>
+          <a href="/" class="btn btn-warning">Modifier</a>
+          <a href="/" class="btn btn-danger">Supprimer</a>
+      </div>-->
+
+      <table class="table table-striped mt-3">
+          <tbody>
+              <tr class="articles" *ngFor="let article of articles">
+                  <td>
+                      {{article.titre}}
+                  </td>
+                  <td><a href="/" class="btn btn-danger">Modifier</a>
+                  </td>
+                  <td>
+                      <a  (click)="delete(article)" class="btn btn-warning">Supprimer</a>
+                  </td>
+              </tr>
+          </tbody>
+      </table>
+  </div>
+</div>
+<div></div>
+
+

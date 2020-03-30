@@ -1,0 +1,14 @@
+p {
+  white-space: pre-line;
+}
+.\4u {
+  display: flex;
+}
+.\4u p:last-child {
+  align-self: flex-end;
+}
+
+.image {
+  display: flex;
+  justify-content: space-around;
+}

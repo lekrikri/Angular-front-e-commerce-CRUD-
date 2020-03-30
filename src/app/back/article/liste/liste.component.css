@@ -1,0 +1,12 @@
+.container{
+  background-image: url(src/assets/boats/image_boats_9.jpg);
+  background-size: cover;
+}
+
+.articles{
+  color: aliceblue;
+}
+
+h1{
+  color: aliceblue;
+}

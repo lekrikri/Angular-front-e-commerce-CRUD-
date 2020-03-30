@@ -1,0 +1,45 @@
+<!-- Header -->
+<header class="row bg-dark col-sm-6 offset-sm-3 my-3">
+  <div id="global" class="col-sm-6 offset-sm-3 my-3">
+    <nav id="header" class="navbar navbar-expand navbar-light bg-light fixed-top">
+      <a routerLink="/" class="logo navbar-brand img-fluid">
+         <img src="./assets/logo_guestonboat.png" style="width: 200px;">
+      </a>
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a href="#" class="nav-link" (click)="showMenu($event, menu)">
+            <img src="assets/dharmachakra-solid.png" width="28" height="28" class="fas">
+            <span class="ml-2">
+              Menu
+            </span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+
+    <!-- Nav -->
+    <nav class="menu-slide bg-light text-light" #menu>
+      <ul class="list-unstyled links">
+        <li><a href="#" (click)="hideMenu($event, menu)">&times;</a></li>
+        <li><a routerLink="/" (click)="showMenu($event, menu)">Home</a></li>
+        <li>
+          <a routerLink="/articles" (click)="showMenu($event, menu)"
+            >Articles</a
+          >
+        </li>
+        <li>
+          <a routerLink="/contact" (click)="showMenu($event, menu)">Contact</a>
+        </li>
+        <li>
+          <a routerLink="/connexion" (click)="showMenu($event, menu)" *ngIf="!authService.isLoggedIn()">Connexion</a>
+        </li>
+        <li>
+          <a (click)="showMenu($event, menu)" (click)="authService.logout()" *ngIf="authService.isLoggedIn()">Déconnexion</a>
+        </li>
+        <li *ngIf="!authService.isLoggedIn()">
+          <a routerLink="/admin">Admin</a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>
